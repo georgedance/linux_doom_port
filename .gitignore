@@ -1,0 +1,6 @@
+linux/
+DOOM/
+*.wad
+*.WAD
+*.o
+.obsidian/
