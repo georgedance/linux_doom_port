@@ -19,7 +19,10 @@
 ### for my proper port
 - [ ] fix ultimate doom shareware/registered thingy not having animated switches
 - [ ] fix demo playback version incompatibility
+    - [ ] fix bouncing lost souls
 - [ ] add jumping
 - [ ] remove visplane limit
     - [ ] in r_plane.c change #define MAXVISPLANES 
     - [ ] maybe look into BOOM's way of solving it?
+- [ ] redo video and audio code
+
