@@ -26,13 +26,6 @@ Xephyr :9 -ac -br -reset -terminate -screen 960x600x8 &\n\
 sleep 0.25s\n\
 DISPLAY=:9 ./linuxxdoom -3 -file ./*.wad" > runme.sh
 
-printf \
-"#!/bin/sh\n\
-\n\
-Xephyr :9 -ac -br -reset -terminate -screen 1280x800x8 &\n\
-sleep 0.25s\n\
-DISPLAY=:9 ./linuxxdoom -4 -file ./*.wad" > runme.sh
-
 echo
 echo "Place Your IWAD in this directory, then run ''. ./runme.sh''"
 echo "Note: The file's name should be all lowercase"
