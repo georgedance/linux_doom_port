@@ -20,3 +20,6 @@
 - [ ] fix ultimate doom shareware/registered thingy not having animated switches
 - [ ] fix demo playback version incompatibility
 - [ ] add jumping
+- [ ] remove visplane limit
+    - [ ] in r_plane.c change #define MAXVISPLANES 
+    - [ ] maybe look into BOOM's way of solving it?
