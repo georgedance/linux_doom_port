@@ -168,7 +168,7 @@ void PacketGet (void)
 				
     fromlen = sizeof(fromaddress);
     c = recvfrom (insocket, &sw, sizeof(sw), 0
-		  , (struct sockaddr *)&fromaddress, &fromlen );
+		  , (struct sockaddr *)&fromaddress, (socklen_t *)&fromlen );
     if (c == -1 )
     {
 	if (errno != EWOULDBLOCK)

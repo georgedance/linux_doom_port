@@ -1,15 +1,8 @@
 # TODO
 ### the todo list
-- [ ] fix '-4' bug
-    - [x] fix immediate crash 
-    - [ ] fix reversing (maybe endianness?)
-    - [ ] learn about bitshifting and other operators
-- [ ] remove '-Wno-' flags from Makefile
+- [x] remove '-Wno-' flags from Makefile
     - [ ] fix the bugs causing those warnings
-- [ ] tidy up the sound server
-    - [ ] fix 32bit variable sizing
-    - [ ] fix warnings
-- [ ] check both for memory leaks
+- [ ] check game and sound server for memory leaks
 - [ ] find out why doom segfaults on exit
 
 ### testing
@@ -17,12 +10,17 @@
 - [ ] test masterlevels
 
 ### for my proper port
-- [ ] fix ultimate doom shareware/registered thingy not having animated switches
 - [ ] fix demo playback version incompatibility
-    - [ ] fix bouncing lost souls
-- [ ] add jumping
+    - [x] fix bouncing lost souls
+- [ ] fix ultimate doom shareware/registered thingy not having animated switches
 - [ ] remove visplane limit
     - [ ] in r_plane.c change #define MAXVISPLANES 
     - [ ] maybe look into BOOM's way of solving it?
 - [ ] redo video and audio code
+- [ ] add better controls
+    - [ ] add customizable controls
+- [ ] add jumping
+- [ ] remove walls of text
+    - [ ] compare with other sourceother source ports
+    - [ ] strip out ENDOOM
 
