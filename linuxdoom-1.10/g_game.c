@@ -1581,14 +1581,19 @@ void G_DeferedPlayDemo (char* name)
  
 void G_DoPlayDemo (void) 
 { 
-    skill_t skill; 
-    int             i, episode, map; 
-	 
+    skill_t     skill;
+    int         i, episode, map;
+    int         demo_version;
+
     gameaction = ga_nothing; 
     demobuffer = demo_p = W_CacheLumpName (defdemoname, PU_STATIC); 
-    if ( *demo_p++ != VERSION)
-    {
-      fprintf( stderr, "Demo is from a different game version!\n");
+    demo_version = *demo_p++;
+    if(demo_version == COMPAT_VERSION) {
+        fprintf(stderr, "Demo is from compat version, v%d\n", demo_version);
+    }
+    else if(demo_version != VERSION) {
+      fprintf(stderr, "Demo is from v%d, not v%d! or v%d\n", 
+              demo_version, COMPAT_VERSION, VERSION);
       gameaction = ga_nothing;
       return;
     }

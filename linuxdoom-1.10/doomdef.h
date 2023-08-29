@@ -30,7 +30,10 @@
 // Global parameters/defines.
 //
 // DOOM version
-enum { VERSION =  110 };
+enum {
+    VERSION =  110,
+    COMPAT_VERSION = 109
+};
 
 
 // Game mode handling - identify IWAD version
