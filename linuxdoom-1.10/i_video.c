@@ -26,6 +26,7 @@ rcsid[] = "$Id: i_x.c,v 1.6 1997/02/03 22:45:10 b1 Exp $";
 
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdint.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
 
@@ -684,8 +685,8 @@ void grabsharedmemory(int size)
   // attach to the shared memory segment
   image->data = X_shminfo.shmaddr = shmat(id, 0, 0);
   
-  fprintf(stderr, "shared memory id=%d, addr=0x%x\n", id,
-	  (int) (image->data));
+  fprintf(stderr, "shared memory id=%d, addr=0x%lx\n", id,
+	  (uintptr_t) (image->data));
 }
 
 void I_InitGraphics(void)
