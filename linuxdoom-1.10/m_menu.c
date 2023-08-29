@@ -676,7 +676,7 @@ void M_SaveGame (int choice)
 //
 //      M_QuickSave
 //
-char    tempstring[80];
+char    tempstring[83];
 
 void M_QuickSaveResponse(int ch)
 {
@@ -1739,65 +1739,61 @@ void M_StartControlPanel (void)
 //
 void M_Drawer (void)
 {
-    static short	x;
-    static short	y;
-    short		i;
-    short		max;
-    char		string[40];
-    int			start;
+    static short    x;
+    static short    y;
+    short           i;
+    short           max;
+    char            string[128];
+    int             start;
 
     inhelpscreens = false;
 
-    
     // Horiz. & Vertically center string and print it.
-    if (messageToPrint)
-    {
+    if (messageToPrint) {
 	start = 0;
 	y = 100 - M_StringHeight(messageString)/2;
-	while(*(messageString+start))
-	{
-	    for (i = 0;i < strlen(messageString+start);i++)
-		if (*(messageString+start+i) == '\n')
-		{
-		    memset(string,0,40);
-		    strncpy(string,messageString+start,i);
-		    start += i+1;
-		    break;
-		}
-				
-	    if (i == strlen(messageString+start))
-	    {
-		strcpy(string,messageString+start);
-		start += i;
-	    }
-				
-	    x = 160 - M_StringWidth(string)/2;
-	    M_WriteText(x,y,string);
-	    y += SHORT(hu_font[0]->height);
-	}
-	return;
+	while(*(messageString+start)) {
+	    for (i = 0; (unsigned long)i < strlen(messageString+start); i++) {
+		    if (*(messageString+start+i) == '\n') {
+		        memset(string, 0, sizeof(string)/sizeof(string[0]));
+		        strncpy(string, messageString+start, i);
+		        start += i+1;
+		        break;
+            }
+        }
+
+	    if ((unsigned long)i == strlen(messageString+start)) {
+		    strcpy(string,messageString+start);
+		    start += i;
+        }
+        x = 160 - M_StringWidth(string)/2;
+        M_WriteText(x,y,string);
+        y += SHORT(hu_font[0]->height);
+    }
+    return;
     }
 
-    if (!menuactive)
-	return;
+    if (!menuactive) {
+        return;
+    }
 
-    if (currentMenu->routine)
-	currentMenu->routine();         // call Draw routine
-    
+    if (currentMenu->routine) {
+	    currentMenu->routine();         // call Draw routine
+    }
+
     // DRAW MENU
     x = currentMenu->x;
     y = currentMenu->y;
     max = currentMenu->numitems;
 
-    for (i=0;i<max;i++)
-    {
-	if (currentMenu->menuitems[i].name[0])
-	    V_DrawPatchDirect (x,y,0,
-			       W_CacheLumpName(currentMenu->menuitems[i].name ,PU_CACHE));
-	y += LINEHEIGHT;
+    for (i=0;i<max;i++) {
+        if (currentMenu->menuitems[i].name[0]) {
+            V_DrawPatchDirect (x,y,0,
+                    W_CacheLumpName(currentMenu->menuitems[i].name ,PU_CACHE));
+        }
+        y += LINEHEIGHT;
     }
 
-    
     // DRAW SKULL
     V_DrawPatchDirect(x + SKULLXOFF,currentMenu->y - 5 + itemOn*LINEHEIGHT, 0,
 		      W_CacheLumpName(skullName[whichSkull],PU_CACHE));

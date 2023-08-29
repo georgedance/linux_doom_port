@@ -394,7 +394,7 @@ void HU_Init(void)
 
     int		i;
     int		j;
-    char	buffer[9];
+    char	buffer[17];
 
     if (french)
 	shiftxform = french_shiftxform;
