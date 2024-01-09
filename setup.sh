@@ -3,14 +3,14 @@
 cd linuxdoom-1.10
 mkdir -p linux
 make clean
-make
+make -j$(nproc)
 
 cd ..
 
 cd sndserv
 mkdir -p linux
 make clean
-make
+make -j$(nproc)
 
 cd ..
 
@@ -19,12 +19,28 @@ cd DOOM
 cp ../linuxdoom-1.10/linux/linuxxdoom .
 cp ../sndserv/linux/sndserver .
 
-printf \
-"#!/bin/sh\n\
-\n\
-Xephyr :9 -ac -br -reset -terminate -screen 960x600x8 &\n\
-sleep 0.25s\n\
-DISPLAY=:9 ./linuxxdoom -3 -file ./*.wad" > runme.sh
+cat >> ./runme.sh << 'EOF'
+#!/bin/sh
+Xephyr :9 -ac -br -reset -terminate -screen 960x600x8 &
+sleep 0.25
+DISPLAY=:9 ./linuxxdoom -3 -config ./.doomrc -file *.wad || pkill Xephyr
+EOF
+
+fill_doomrc() {
+    printf "$1\t\t$2\n" >> ./.doomrc
+}
+
+#printf "sndserver\t\t\"./sndserver\"\n" >> ./.doomrc
+
+fill_doomrc sndserver \"./sndserver\"
+fill_doomrc key_right 174
+fill_doomrc key_left 172
+fill_doomrc key_up 119
+fill_doomrc key_down 115
+fill_doomrc key_strafeleft 97
+fill_doomrc key_straferight 100
+fill_doomrc key_fire 32
+fill_doomrc key_use 102
 
 echo
 echo "Place Your IWAD in this directory, then run ''. ./runme.sh''"

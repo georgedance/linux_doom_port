@@ -261,8 +261,10 @@ default_t	defaults[] =
 #endif
 
 #ifdef LINUX
-    {"mousedev", (int*)&mousedev, (long long int)"/dev/ttyS0"},
-    {"mousetype", (int*)&mousetype, (long long int)"microsoft"},
+    // TODO: figure out why this segfaults M_SaveDefaults
+    //   probably to do with how the pointer is being dereferenced
+    //{"mousedev", (int*)&mousedev, (long long int)"/dev/ttyS0"},
+    //{"mousetype", (int*)&mousetype, (long long int)"microsoft"},
 #endif
 
     {"use_mouse",&usemouse, 1},

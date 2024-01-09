@@ -1,9 +1,10 @@
 # TODO
 ### the todo list
 - [x] remove '-Wno-' flags from Makefile
-    - [ ] fix the bugs causing those warnings
-- [ ] check game and sound server for memory leaks
-- [ ] find out why doom segfaults on exit
+    - [x] fixed (most of) the bugs causing those warnings
+- [ ] check game and sound server for memory leaks?
+- [x] find out why doom segfaults on exit
+    - [ ] find out why mousedev segfaults M_SaveDefaults in m_misc.c
 
 ### testing
 - [ ] test if doom2 crashes upon trying to display help2
@@ -14,13 +15,13 @@
     - [x] fix bouncing lost souls
 - [ ] fix ultimate doom shareware/registered thingy not having animated switches
 - [ ] remove visplane limit
-    - [ ] in r_plane.c change #define MAXVISPLANES 
+    - [x] in r_plane.c change #define MAXVISPLANES 
     - [ ] maybe look into BOOM's way of solving it?
 - [ ] redo video and audio code
 - [ ] add better controls
-    - [ ] add customizable controls
+    - [ ] add customisable controls
 - [ ] add jumping
 - [ ] remove walls of text
-    - [ ] compare with other sourceother source ports
+    - [ ] compare with other source ports
     - [ ] strip out ENDOOM
-
+- [ ] remove #ifdef NORMALUNIX

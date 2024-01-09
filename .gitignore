@@ -4,3 +4,5 @@ DOOM/
 *.WAD
 *.o
 .obsidian/
+.obsidian*
+*.code-workspace
