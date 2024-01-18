@@ -30,8 +30,6 @@ fill_doomrc() {
     printf "$1\t\t$2\n" >> ./.doomrc
 }
 
-#printf "sndserver\t\t\"./sndserver\"\n" >> ./.doomrc
-
 fill_doomrc sndserver \"./sndserver\"
 fill_doomrc key_right 174
 fill_doomrc key_left 172

@@ -51,7 +51,8 @@ I wanted to try port the original source code of DOOM to 64bit and "modern" linu
 ### also:
 ~~I HAVE NO IDEA WHAT'S GOING ON WITH GITHUB'S CODE DETECTION FEATURE. I DON'T KNOW WHY 95.9% OF THE CODE IS C++ BUT ALSO 0 FILES MATCH???~~
 I did a bit of searching online and found [this stack overflow article](https://stackoverflow.com/questions/42724465/why-did-github-decide-my-100-c-repository-was-50-c). Odd that this happens, but I guess it makes sense.
-After going through that and committing the above comments, I realised why github's [linguist](https://github.com/github-linguist/linguist)was thinking that all the .h and .c files were C++. It was because of the emacs style mode select at the top of all of the files using C++.
+
+After going through that and committing the above comments, I realised why github's [linguist](https://github.com/github-linguist/linguist) was thinking that all the .h and .c files were C++. It was because of the emacs style mode select at the top of all of the files using C++.
 
 ## Original README.TXT
 The original README.TXT file can still be accessed via [this link](./README.TXT).

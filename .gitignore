@@ -1,7 +1,9 @@
 linux/
 DOOM/
 *.wad
+*.wad.bak
 *.WAD
+wads/
 *.o
 .obsidian/
 .obsidian*
